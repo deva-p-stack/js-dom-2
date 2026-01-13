@@ -15,14 +15,26 @@ function removeitem(){
 }
 let colorbtn = document.querySelector('#colorchange');
 
-let section = document.querySelector('.containersection')
+let section = document.querySelector('.containersection');
+let colorcode = document.querySelector("#colorcode");
 
 colorbtn.addEventListener("click",function(){
 
-let color = [ "bg-red-300","bg-green-400","bg-blue-300","bg-gray-400","bg-indigo-400","bg-emerald-400","bg-sky-300"];
+let color  = [
+  { colors: "bg-red-300", hex: "#FCA5A5" },
+  { colors: "bg-green-400", hex: "#4ADE80" },
+  { colors: "bg-blue-300", hex: "#93C5FD" },
+  { colors: "bg-gray-400", hex: "#9CA3AF" },
+  { colors: "bg-indigo-400", hex: "#818CF8" },
+  { colors: "bg-emerald-400", hex: "#34D399" },
+  { colors: "bg-sky-300", hex: "#7DD3FC" }
+];
 let randomcolor = Math.floor(Math.random() * color.length)
 removeitem();
-section.classList.add(color[randomcolor]);
+
+section.classList.add(color[randomcolor].colors);
+colorcode.textContent = `Hex color: ${color[randomcolor].hex}`;
+
 
 })
 //  dark mode and light mode 
